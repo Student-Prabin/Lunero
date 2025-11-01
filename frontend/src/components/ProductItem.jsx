@@ -12,7 +12,7 @@ const ProductItem = ({ id, image, name, price, description, view }) => {
           {/* Left: Image and text */}
           <div className="flex gap-4 items-center">
             <img
-              className="h-24 w-24 object-cover flex-shrink-0 rounded"
+              className="h-24 w-24 object-cover shrink-0 rounded"
               src={image[0]}
               alt={name}
             />

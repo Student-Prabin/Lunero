@@ -11,17 +11,19 @@ import Login from "./pages/Login.jsx"
 import Navbar from "./components/Navbar.jsx"
 import Footer from "./components/Footer.jsx"
 import Benifits from "./components/Benifits.jsx"
+import SearchBar from "./components/SearchBar.jsx"
 
 const App = () => {
   return (
     <div>
       <Navbar />
+      <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/myAccount" element={<MyAccount />} />
         <Route path="/blog" element={<Blog />} />

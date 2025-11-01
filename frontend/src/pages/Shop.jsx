@@ -1,10 +1,11 @@
 import { LuAlignVerticalSpaceAround, LuLayoutGrid, LuSlidersHorizontal } from "react-icons/lu";
 import Title from "../components/Title.jsx";
-import { useEffect, useState } from "react";
-import { products } from "../assets/assets.js";
+import { useContext, useEffect, useState } from "react";
 import ProductItem from "../components/ProductItem.jsx";
+import { ShopContext } from "../context/ShopContext.jsx";
 
 const Shop = () => {
+  const { products, search, showSearch } = useContext(ShopContext);
   const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [sort, setSort] = useState("default");
@@ -23,10 +24,14 @@ const Shop = () => {
     }
   };
 
+
   // Apply filter & sort
   useEffect(() => {
     let productsCopy = [...products];
 
+    if (showSearch && search) {
+      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+    }
     if (category.length > 0) {
       productsCopy = productsCopy.filter((p) => category.includes(p.category));
     }
@@ -39,7 +44,7 @@ const Shop = () => {
 
     setFilteredProducts(productsCopy);
     setPage(1);
-  }, [category, sort]);
+  }, [category, sort, search, showSearch]);
 
   // Pagination logic
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
