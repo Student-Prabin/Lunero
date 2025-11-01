@@ -1,6 +1,10 @@
+import Title from "../components/Title.jsx"
+
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <Title page={'About'} />
+    </div>
   )
 }
 export default About

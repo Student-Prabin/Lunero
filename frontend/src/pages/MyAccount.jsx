@@ -1,6 +1,10 @@
+import Title from "../components/Title.jsx"
+
 const MyAccount = () => {
   return (
-    <div>MyAccount</div>
+    <div>
+      <Title page={'My Account'} />
+    </div>
   )
 }
 export default MyAccount

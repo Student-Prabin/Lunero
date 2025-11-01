@@ -2,13 +2,17 @@ import { Link, NavLink } from "react-router-dom"
 import { assets } from "../assets/assets.js"
 import { LuChevronLeft, LuHeart, LuMenu, LuSearch, LuShoppingCart, LuUser } from "react-icons/lu";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const [visible, setVisible] = useState(false);
   return (
-    <div className="sm:mx-20 flex items-center justify-between py-5 font-medium">
-      <NavLink to={'/'}>
-        <img src={assets.logo} className="w-30" />
+    <div className={`sm:px-20 flex items-center justify-between py-5 font-medium ${isHome ? "bg-[#FBEBB5]" : "bg-white"}`}>
+      <NavLink to={'/'} className="flex not-lg:flex-col items-center">
+        <img src={assets.m} className="w-15" />
+        <p className="text-xl self-end text-[#68511b]">Magnora</p>
       </NavLink>
       {/* pages navigation*/}
       <ul className="hidden sm:flex gap-5 text-sm">
@@ -52,7 +56,7 @@ const Navbar = () => {
         <LuMenu onClick={() => setVisible(true)} className="cursor-pointer sm:hidden" />
 
         {/* sidebar menu for mobiles */}
-        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-gray-600 transition-all ${visible ? 'w-full' : 'w-0'}`}>
+        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-gray-600 transition-all ${visible ? 'w-full z-1' : 'w-0'}`}>
           <div className="flex flex-col gap-5 text-white">
             <div onClick={() => setVisible(false)} className="flex items-center p-5 cursor-pointer">
               <LuChevronLeft />Back

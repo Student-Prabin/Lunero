@@ -1,6 +1,10 @@
+import Title from "../components/Title.jsx"
+
 const Checkout = () => {
   return (
-    <div>Checkout</div>
+    <div>
+      <Title page={'Checkout'} />
+    </div>
   )
 }
 export default Checkout

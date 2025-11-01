@@ -1,6 +1,10 @@
+import Title from "../components/Title.jsx"
+
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <Title page={'Contact'} />
+    </div>
   )
 }
 export default Contact

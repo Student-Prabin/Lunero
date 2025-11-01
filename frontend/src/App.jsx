@@ -9,6 +9,8 @@ import Blog from "./pages/Blog.jsx"
 import Product from "./pages/Product.jsx"
 import Login from "./pages/Login.jsx"
 import Navbar from "./components/Navbar.jsx"
+import Footer from "./components/Footer.jsx"
+import Benifits from "./components/Benifits.jsx"
 
 const App = () => {
   return (
@@ -26,7 +28,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
 
       </Routes>
-
+      <Benifits />
+      <Footer />
     </div>
   )
 }
